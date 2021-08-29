@@ -11,7 +11,7 @@ function Scene() {
   const mesh = useRef()
 
   function handleDownloads() {
-    // handleDownloadGTLF()
+    handleDownloadGTLF()
     handleDownloadUSDZ()
   }
 

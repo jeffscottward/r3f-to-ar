@@ -27,12 +27,8 @@ async function exportUSDZ(mesh, filename, options) {
             gltfLoader.load(
                 gltfBlobURL,
                 async function onCompleted ( gltf ) {
-                    console.log('blobbyUSDZPREP', gltf)
                     const arraybuffer = await usdzExporter.parse(gltf.scene);
-                    // https://spectrum.chat/react-three-fiber/general/loading-gltf-getting-the-typeerror-cannot-read-property-uuid-of-undefined~a9c6f555-96da-4bdb-b21d-f1b6be783e68?m=MTU4ODA2MTg5MTQ3NA==
-                    console.log(arraybuffer)
                     const blob = new Blob([arraybuffer], { type: 'application/octet-stream' });
-                    console.log(blob)
                     resolve(blob)               
                 }
             );
@@ -40,7 +36,7 @@ async function exportUSDZ(mesh, filename, options) {
     }
 
     let usdz = await usdzBlob(gltfBlobURL)
-    console.log(usdz)
+    save(usdz, filename+'.usdz')
 }
 
 export default exportUSDZ
