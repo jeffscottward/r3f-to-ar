@@ -12,3 +12,4 @@ function getRandomColor() {
 }
 
 export { randNum, getRandomColor };
+
