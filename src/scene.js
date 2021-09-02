@@ -3,29 +3,38 @@
 
 import React, { useRef, useEffect } from 'react'
 import { Canvas, extend, useFrame, useThree } from '@react-three/fiber'
-import { Box, Sphere } from "@react-three/drei";
-import exportGLTF from './exporters/gltfExporter'
-import exportUSDZ from './exporters/usdzExporter'
+import { Box, Sphere } from '@react-three/drei'
+import gltfDownload from './exporters/gltfDownload'
+import usdzDownload from './exporters/usdzDownload'
+import sceneFilesExport from './exporters/sceneFilesExport'
+import csscolors from 'css-color-names'
 
 function Scene() {
   const mesh = useRef()
-
-  function handleDownloads() {
+  const handleDownloadGTLF = () => gltfDownload(mesh.current, 'scene')
+  const handleDownloadUSDZ = () => usdzDownload(mesh.current, 'scene')
+  const handleAll3DDownloads = () => {
     handleDownloadGTLF()
     handleDownloadUSDZ()
   }
-
-  function handleDownloadGTLF () {
-    exportGLTF(mesh.current, 'scene')
+  const handleFileCreation = async () => {
+    let files = await sceneFilesExport(mesh.current, 'scene')
+    console.log(files)
   }
-  function handleDownloadUSDZ () {
-    exportUSDZ(mesh.current, 'scene')
+  const makeAbunch = async () => {
+    const testmesh = useRef()
+    let sphere = () => (
+      <Sphere ref={testmesh} onClick={handleFileCreation}>
+        <meshStandardMaterial color={'blue'} />
+      </Sphere>
+    )
   }
+  let filledArray = new Array(10).fill(null).map(()=> ({'hello':'goodbye'}))
   return (
     <>
-      <Sphere ref={mesh} args={[1,1,1]}onClick={handleDownloads}>
-        <meshBasicMaterial attach="material" color="hotpink" />
-      </Sphere>
+      {/* <Sphere ref={mesh} onClick={handleFileCreation}>
+        <meshStandardMaterial color={'green'} />
+      </Sphere> */}
     </>
   )
 }

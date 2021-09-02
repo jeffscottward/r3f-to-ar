@@ -21,6 +21,7 @@ function App() {
       <Canvas invalidateFrameloop={true}>
         <Controls />
         <Scene/>
+        <ambientLight/>
       </Canvas>
     </>
   )
