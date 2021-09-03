@@ -26,6 +26,8 @@ import Shark from "../assets/FullBodyNouns/Shark";
 
 const lookAtPosition = new THREE.Vector3(0, 2, 0);
 
+const rand = (attr) => Math.floor(Math.random() * attr)
+
 const NounCanvas = (props) => {
   const [optionsVisibility, setOptionsVisibility] = useState("none");
   const [currentCameraPosition, setCurrentCameraPosition] = useState(lookAtPosition);
@@ -34,59 +36,43 @@ const NounCanvas = (props) => {
   const [environment, setEnvironment] = useState("Normal");
 
   const [head, setHead] = useState(
-    headAttributes[Math.floor(Math.random() * headAttributes.length)].value
+    headAttributes[rand(headAttributes.length)].value
   );
   const [glasses, setGlasses] = useState(
-    glassesAttributes[Math.floor(Math.random() * glassesAttributes.length)]
+    glassesAttributes[rand(glassesAttributes.length)]
       .value
   );
   const [body, setBody] = useState(
-    bodyAttributes[Math.floor(Math.random() * bodyAttributes.length)].value
+    bodyAttributes[rand(bodyAttributes.length)].value
   );
   const [pants, setPants] = useState(
-    pantsAttributes[Math.floor(Math.random() * pantsAttributes.length)].value
+    pantsAttributes[rand(pantsAttributes.length)].value
   );
   const [shoes, setShoes] = useState(
-    shoesAttributes[Math.floor(Math.random() * shoesAttributes.length)].value
+    shoesAttributes[rand(shoesAttributes.length)].value
   );
 
   const generateRandomNoun = () => {
     setHead(
-      headAttributes[Math.floor(Math.random() * headAttributes.length)].value
+      headAttributes[rand(headAttributes.length)].value
     );
     setGlasses(
-      glassesAttributes[Math.floor(Math.random() * glassesAttributes.length)]
+      glassesAttributes[rand(glassesAttributes.length)]
         .value
     );
     setBody(
-      bodyAttributes[Math.floor(Math.random() * bodyAttributes.length)].value
+      bodyAttributes[rand(bodyAttributes.length)].value
     );
     setPants(
-      pantsAttributes[Math.floor(Math.random() * pantsAttributes.length)].value
+      pantsAttributes[rand(pantsAttributes.length)].value
     );
     setShoes(
-      shoesAttributes[Math.floor(Math.random() * shoesAttributes.length)].value
+      shoesAttributes[rand(shoesAttributes.length)].value
     );
   };
 
   return (
     <>
-      {/* <Canvas
-        shadows
-        gl={{ preserveDrawingBuffer: true }}
-        dpr={[1, 1.5]}
-        // https://github.com/pmndrs/react-three-fiber/issues/67
-        // camera={{ position: [0, 0.5, 0.5], fov: 55, near: 0.1, far: 100 }}
-        onCreated={({ camera }) => {
-          // do things here
-          camera.position.x = 0.2;
-          camera.position.y = 0.4;
-          camera.position.z = 0.4;
-          camera.lookAt(lookAtPosition);
-          camera.updateProjectionMatrix();
-          // camera.fov =
-        }}
-      > */}
       {environment === "Normal" && (
         <fog attach="fog" args={[0xa0a0a0, 1, 5]} />
       )}
@@ -135,7 +121,7 @@ const NounCanvas = (props) => {
             glasses={glasses}
             body={body}
             pants={pants}
-            feet={feet}
+            shoes={shoes}
           /> */}
         <Cloud
           head={head}
@@ -187,7 +173,6 @@ const NounCanvas = (props) => {
             shoes={shoes}
           />
       </Suspense>
-      {/* </Canvas> */}
     </>
   );
 };
