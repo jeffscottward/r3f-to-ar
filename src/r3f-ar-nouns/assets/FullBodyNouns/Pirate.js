@@ -4,7 +4,7 @@ import { getKeyByValue, glassesPosition, headNames } from '../../constants/attri
 
 const Pirate = (props) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/Pirate.gltf');
+  const { nodes, materials } = useGLTF('/models/Pirate.gltf');
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
@@ -71,6 +71,6 @@ const Pirate = (props) => {
   );
 };
 
-useGLTF.preload('/Iirate.gltf');
+useGLTF.preload('/models/Pirate.gltf');
 
 export default Pirate;

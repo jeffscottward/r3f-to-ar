@@ -4,7 +4,7 @@ import { getKeyByValue, glassesPosition, headNames } from '../../constants/attri
 
 const Crab = (props) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/Crab.gltf');
+  const { nodes, materials } = useGLTF('/models/Crab.gltf');
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
@@ -71,6 +71,6 @@ const Crab = (props) => {
   );
 };
 
-useGLTF.preload('/Crab.gltf');
+useGLTF.preload('/models/Crab.gltf');
 
 export default Crab;

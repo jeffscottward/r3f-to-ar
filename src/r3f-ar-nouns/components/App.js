@@ -12,11 +12,7 @@ const App = () => {
   const [pants, setPants] = useState('grey'); //black
 
   return (
-    <div className="full-width">
-      <div className="nouns-canvas">
-        <NounCanvas autoRotate={autoRotate} setAutoRotate={setAutoRotate} />
-      </div>
-    </div>
+    <NounCanvas autoRotate={autoRotate} setAutoRotate={setAutoRotate} />
   );
 };
 

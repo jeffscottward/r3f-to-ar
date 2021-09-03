@@ -17,13 +17,11 @@ const Controls = () => {
 
 function App() {
   return (
-    <>
-      <Canvas invalidateFrameloop={true}>
-        <Controls />
-        <Scene/>
-        <ambientLight/>
-      </Canvas>
-    </>
+    <Canvas invalidateFrameloop={true}>
+      <Controls />
+      <Scene/>
+      <ambientLight/>
+    </Canvas>
   ) 
 }
 

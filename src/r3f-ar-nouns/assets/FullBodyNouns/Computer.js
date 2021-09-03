@@ -4,7 +4,7 @@ import { getKeyByValue, glassesPosition, headNames } from '../../constants/attri
 
 const Computer = (props) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/Computer.gltf');
+  const { nodes, materials } = useGLTF('/models/Computer.gltf');
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
@@ -71,6 +71,6 @@ const Computer = (props) => {
   );
 };
 
-useGLTF.preload('/Computer.gltf');
+useGLTF.preload('/models/Computer.gltf');
 
 export default Computer;

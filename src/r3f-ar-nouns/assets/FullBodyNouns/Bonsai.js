@@ -3,7 +3,7 @@ import { useGLTF } from '@react-three/drei';
 
 const Bonsai = (props) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/Bonsai.gltf');
+  const { nodes, materials } = useGLTF('/models/Bonsai.gltf');
   return (
     <group ref={group} {...props} dispose={null} castShadow>
       <mesh
@@ -54,6 +54,6 @@ const Bonsai = (props) => {
   );
 };
 
-useGLTF.preload('/Bonsai.gltf');
+useGLTF.preload('/models/Bonsai.gltf');
 
 export default Bonsai;

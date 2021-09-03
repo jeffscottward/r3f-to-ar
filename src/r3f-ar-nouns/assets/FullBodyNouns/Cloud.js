@@ -9,7 +9,7 @@ import {
 
 const Cloud = (props) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/Cloud.gltf');
+  const { nodes, materials } = useGLTF('/models/Cloud.gltf');
   return (
     <group ref={group} {...props} dispose={null} castShadow>
       <mesh
@@ -76,6 +76,6 @@ const Cloud = (props) => {
   );
 };
 
-useGLTF.preload('/Cloud.gltf');
+useGLTF.preload('/models/Cloud.gltf');
 
 export default Cloud;

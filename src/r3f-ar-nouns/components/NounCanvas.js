@@ -3,7 +3,7 @@ import * as THREE from "three";
 import { Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 
-// import useReflector from "./shaders/useReflector";
+import useReflector from "../shaders/useReflector";
 import "../shaders/materials/ReflectorMaterial";
 import ProgressBar from "./ProgressBar";
 
@@ -69,11 +69,9 @@ const NounCanvas = (props) => {
     );
   };
 
-  console.log('RENDER ATTEMPT')
-
   return (
     <>
-      <Canvas
+      {/* <Canvas
         shadows
         gl={{ preserveDrawingBuffer: true }}
         dpr={[1, 1.5]}
@@ -88,65 +86,65 @@ const NounCanvas = (props) => {
           camera.updateProjectionMatrix();
           // camera.fov =
         }}
-      >
-        {environment === "Normal" && (
-          <fog attach="fog" args={[0xa0a0a0, 1, 5]} />
-        )}
-        <ambientLight intensity={0.8} />
-        <directionalLight
-          position={[0, 0.5, 0.2]}
-          castShadow
-          intensity={0.5}
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
-        />
-        <OrbitControls
-          target={[0, 0.2, 0]}
-          ref={orbitControls}
-          autoRotate={props.autoRotate}
-          enablePan={false}
-          enableDamping={true}
-          maxPolarAngle={Math.PI / 2.05}
-          maxDistance={5}
-          minDistance={0.325}
-        />
-        {environment === "Normal" && (
-          <mesh receiveShadow position={[0, -0.025, 0]}>
-            <boxBufferGeometry args={[25, 0.05, 25]} />
-            <meshStandardMaterial
-              color={new THREE.Color(0xffffff)
-                .setHex(0xffffff)
-                .convertSRGBToLinear()}
-            />
-          </mesh>
-        )}
-        {environment === "Normal" && (
-          <gridHelper
-            args={[
-              50,
-              200,
-              new THREE.Color(0x919191),
-              new THREE.Color(0x919191),
-            ]}
-            position={[0, 0.001, 0]}
+      > */}
+      {environment === "Normal" && (
+        <fog attach="fog" args={[0xa0a0a0, 1, 5]} />
+      )}
+      <ambientLight intensity={0.8} />
+      <directionalLight
+        position={[0, 0.5, 0.2]}
+        castShadow
+        intensity={0.5}
+        shadow-mapSize-width={1024}
+        shadow-mapSize-height={1024}
+      />
+      <OrbitControls
+        target={[0, 0.2, 0]}
+        ref={orbitControls}
+        autoRotate={props.autoRotate}
+        enablePan={false}
+        enableDamping={true}
+        maxPolarAngle={Math.PI / 2.05}
+        maxDistance={5}
+        minDistance={0.325}
+      />
+      {environment === "Normal" && (
+        <mesh receiveShadow position={[0, -0.025, 0]}>
+          <boxBufferGeometry args={[25, 0.05, 25]} />
+          <meshStandardMaterial
+            color={new THREE.Color(0xffffff)
+              .setHex(0xffffff)
+              .convertSRGBToLinear()}
           />
-        )}
-        <Suspense fallback={<ProgressBar />}>
-          <Bonsai
+        </mesh>
+      )}
+      {environment === "Normal" && (
+        <gridHelper
+          args={[
+            50,
+            200,
+            new THREE.Color(0x919191),
+            new THREE.Color(0x919191),
+          ]}
+          position={[0, 0.001, 0]}
+        />
+      )}
+      <Suspense fallback={<ProgressBar />}>
+        {/* <Bonsai
             head={head}
             glasses={glasses}
             body={body}
             pants={pants}
             feet={feet}
-          />
-          <Cloud
-            head={head}
-            glasses={glasses}
-            body={body}
-            pants={pants}
-            shoes={shoes}
-          />
-          <Computer
+          /> */}
+        <Cloud
+          head={head}
+          glasses={glasses}
+          body={body}
+          pants={pants}
+          shoes={shoes}
+        />
+        <Computer
             head={head}
             glasses={glasses}
             body={body}
@@ -188,8 +186,8 @@ const NounCanvas = (props) => {
             pants={pants}
             shoes={shoes}
           />
-        </Suspense>
-      </Canvas>
+      </Suspense>
+      {/* </Canvas> */}
     </>
   );
 };

@@ -9,7 +9,7 @@ import {
 
 const Shark = (props) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/Shark.glb');
+  const { nodes, materials } = useGLTF('/models/Shark.glb');
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
@@ -52,6 +52,6 @@ const Shark = (props) => {
   );
 };
 
-useGLTF.preload('/Shark.glb');
+useGLTF.preload('/models/Shark.glb');
 
 export default Shark;

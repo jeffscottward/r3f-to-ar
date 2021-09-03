@@ -4,7 +4,7 @@ import { getKeyByValue, glassesPosition, headNames } from '../../constants/attri
 
 const Mixer = (props) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/Mixer.gltf');
+  const { nodes, materials } = useGLTF('/models/Mixer.gltf');
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
@@ -71,6 +71,6 @@ const Mixer = (props) => {
   );
 };
 
-useGLTF.preload('/Mixer.gltf');
+useGLTF.preload('/models/Mixer.gltf');
 
 export default Mixer;

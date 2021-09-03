@@ -4,7 +4,7 @@ import { getKeyByValue, glassesPosition, headNames } from '../../constants/attri
 
 const Rabbit = (props) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/Rabbit.gltf');
+  const { nodes, materials } = useGLTF('/models/Rabbit.gltf');
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
@@ -71,6 +71,6 @@ const Rabbit = (props) => {
   );
 };
 
-useGLTF.preload('/Rabbit.gltf');
+useGLTF.preload('/models/Rabbit.gltf');
 
 export default Rabbit;
