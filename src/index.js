@@ -24,7 +24,7 @@ function App() {
         <ambientLight/>
       </Canvas>
     </>
-  )
+  ) 
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
