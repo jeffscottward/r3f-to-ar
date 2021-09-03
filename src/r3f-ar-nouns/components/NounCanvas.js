@@ -24,6 +24,8 @@ import Pirate from "../assets/FullBodyNouns/Pirate";
 import Rabbit from "../assets/FullBodyNouns/Rabbit";
 import Shark from "../assets/FullBodyNouns/Shark";
 
+import usdzDownload from '../../exporters/usdzDownload'
+
 const lookAtPosition = new THREE.Vector3(0, 2, 0);
 
 const rand = (attr) => Math.floor(Math.random() * attr)
@@ -32,6 +34,7 @@ const NounCanvas = (props) => {
   const [optionsVisibility, setOptionsVisibility] = useState("none");
   const [currentCameraPosition, setCurrentCameraPosition] = useState(lookAtPosition);
   const orbitControls = useRef();
+  const ARModel = useRef();
 
   const [environment, setEnvironment] = useState("Normal");
 
@@ -70,6 +73,8 @@ const NounCanvas = (props) => {
       shoesAttributes[rand(shoesAttributes.length)].value
     );
   };
+
+  const handleDownloadUSDZ = () => usdzDownload(ARModel.current, 'scene')
 
   return (
     <>
@@ -123,55 +128,57 @@ const NounCanvas = (props) => {
             pants={pants}
             shoes={shoes}
           /> */}
-        <Cloud
-          head={head}
-          glasses={glasses}
-          body={body}
-          pants={pants}
-          shoes={shoes}
-        />
-        <Computer
-          head={head}
-          glasses={glasses}
-          body={body}
-          pants={pants}
-          shoes={shoes}
-        />
-        <Crab
-          head={head}
-          glasses={glasses}
-          body={body}
-          pants={pants}
-          shoes={shoes}
-        />
-        <Mixer
-          head={head}
-          glasses={glasses}
-          body={body}
-          pants={pants}
-          shoes={shoes}
-        />
-        <Pirate
-          head={head}
-          glasses={glasses}
-          body={body}
-          pants={pants}
-          shoes={shoes}
-        />
-        <Rabbit
-          head={head}
-          glasses={glasses}
-          body={body}
-          pants={pants}
-          shoes={shoes}
-        />
-        <Shark
-          head={head}
-          glasses={glasses}
-          body={body}
-          pants={pants}
-          shoes={shoes}
-        />
+        <group ref={ARModel} castShadow onClick={handleDownloadUSDZ}> 
+          <Cloud
+            head={head}
+            glasses={glasses}
+            body={body}
+            pants={pants}
+            shoes={shoes}
+          />
+          <Computer
+            head={head}
+            glasses={glasses}
+            body={body}
+            pants={pants}
+            shoes={shoes}
+          />
+          <Crab
+            head={head}
+            glasses={glasses}
+            body={body}
+            pants={pants}
+            shoes={shoes}
+          />
+          <Mixer
+            head={head}
+            glasses={glasses}
+            body={body}
+            pants={pants}
+            shoes={shoes}
+          />
+          <Pirate
+            head={head}
+            glasses={glasses}
+            body={body}
+            pants={pants}
+            shoes={shoes}
+          />
+          <Rabbit
+            head={head}
+            glasses={glasses}
+            body={body}
+            pants={pants}
+            shoes={shoes}
+          />
+          <Shark
+            head={head}
+            glasses={glasses}
+            body={body}
+            pants={pants}
+            shoes={shoes}
+          />
+        </group>
       </Suspense>
     </>
   );
